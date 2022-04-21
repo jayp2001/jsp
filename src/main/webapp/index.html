@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style/login.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="">
+        <div class="grid">
+            <div class="grid grid-rows-1 row_1">
+                <div class="grid grid-cols-12 row1-cols mt-20 ml-5 mr-5">
+                    <div class="col-start-5 col-span-4 row1-col1">
+                        <div class="card">
+                            <form class="grid grid-rows-4 content-center" action="signincheck.jsp">
+                                <div class="card_header">
+                                    Sign In
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Enter User Name" name="username" class="input_field"/>
+                                </div>
+                                <div>
+                                    <input type="password" placeholder="Enter password" name="password" class="input_field"/>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div><button class="signIn_btn">Sign In</button></div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <div class="table_footer flex justify-end">
+                            <div><button class="insert_btn">Add Hotel</button></div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
