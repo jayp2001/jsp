@@ -104,12 +104,13 @@ if(sessionid!=0&&sessionid!=1){
                                 PreparedStatement pst = conn.prepareStatement("SELECT * FROM hotel ");
 
                                 ResultSet rs = pst.executeQuery();
-
+                                int i=1;
                                 while (rs.next()) {
+                                    
                             %>
                             <div class="table_row grid grid-cols-12 justify-between content-center">
                                 <div class="col-span-1 rows justify-center">
-                                    1
+                                  <%=i%>
                                 </div>
                                 <div class="col-span-1">
 
@@ -134,6 +135,7 @@ if(sessionid!=0&&sessionid!=1){
                                 </a>
                             </div>
                             <%
+                                i++;
                                 }
 
 

@@ -3,6 +3,10 @@
     Created on : 22 Apr, 2022, 10:44:57 AM
     Author     : Dhruv
 --%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.mycompany.mavenproject1.Database"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% int sessionid=(int)session.getAttribute("id");
@@ -49,125 +53,39 @@ if(sessionid!=0&&sessionid!=1){
                         <div class="table_header">
                             Hotels
                         </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
-                            </div>
-                            <div class="col-span-1">
+                         <%
+                                Connection conn = Database.getConnection();
 
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
+                                PreparedStatement pst = conn.prepareStatement("SELECT * FROM hotel ");
+
+                                ResultSet rs = pst.executeQuery();
+                                int i=1;
+                                while (rs.next()) {
+                            %>
+                        <div class="table_row grid grid-cols-12 justify-between content-center">
+                                <div class="col-span-1 rows justify-center">
+                                    <%=i%>
+                                </div>
+                                <div class="col-span-1">
+
+                                </div>
+                                <div class="col-span-5 rows" style="text-align: left;">
+                                    <%=rs.getString(2)%>
+                                </div>
+                                <div class="col-span-3 rows" style="text-align: left;">
+                                    <%=rs.getString(6)%>
+                                </div>
+                                      <div class="col-span-1 rows view_detalis">
                                 <i class="fa fa-eye"></i>
                             </div>
-                        </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
                             </div>
-                            <div class="col-span-1">
+                            <%
+                                i++;
+                                }
 
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                        </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
-                            </div>
-                            <div class="col-span-1">
 
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                        </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
-                            </div>
-                            <div class="col-span-1">
+                            %>
 
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                        </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
-                            </div>
-                            <div class="col-span-1">
-
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                        </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
-                            </div>
-                            <div class="col-span-1">
-
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                        </div>
-                        <div class="table_row grid grid-cols-12 justify-between content-center">
-                            <div class="col-span-1 rows justify-center">
-                                1
-                            </div>
-                            <div class="col-span-1">
-
-                            </div>
-                            <div class="col-span-6 rows" style="text-align: left;">
-                                Jay Parmar
-                            </div>
-                            <div class="col-span-3 rows" style="text-align: left;">
-                                India
-                            </div>
-                            <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
