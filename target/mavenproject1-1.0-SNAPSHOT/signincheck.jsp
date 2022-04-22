@@ -30,7 +30,7 @@
                 ResultSet rs = pst.executeQuery();
                 
                 if(rs.next()){
-                    session.setAttribute("id" , rs.getString(1));
+                    session.setAttribute("id" , rs.getInt(6));
                     response.sendRedirect("dashboard.jsp");
                 }
             }catch(Exception e){

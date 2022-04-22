@@ -2,6 +2,16 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.mycompany.mavenproject1.Database"%>
+<% int sessionid=(int)session.getAttribute("id");
+if(sessionid==0){%>
+<jsp:forward page="user_home.jsp"/>
+<%}
+if(sessionid!=0&&sessionid!=1){
+%>
+<jsp:forward page="index.html"/>
+<%}%>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
