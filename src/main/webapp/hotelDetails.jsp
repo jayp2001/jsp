@@ -20,7 +20,7 @@ if(sessionid!=0&&sessionid!=1){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hotel Detail</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style/hotelDetails.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,7 +37,7 @@ if(sessionid!=0&&sessionid!=1){
         <div class="navi-bar grid grid-rows-1">
             <div class="grid grid-cols-12 content-center navi">
                 <div class="col-span-8 flex justify-start gap-7">
-                    <a href="#" class="navi-link">
+                    <a href="http://localhost:8080/mavenproject1/dashboard.jsp" class="navi-link">
                         Home
                     </a>
                     <a class="navi-link-active">
@@ -81,10 +81,10 @@ if(sessionid!=0&&sessionid!=1){
                              int hotelid=Integer.parseInt(request.getParameter("hotel_id"));
                                 Connection conn = Database.getConnection();
 
-                                PreparedStatement pst = conn.prepareStatement("SELECT hotel.name,hotel.contact_num, hotel.email,hotel.address,reviews.user,reviews.review,reviews.rating FROM hotel, reviews where hotel.id=reviews.hotel_id and hotel.id="+hotelid);
+                                PreparedStatement pst = conn.prepareStatement("SELECT name,contact_num, email,address FROM hotel where id="+hotelid);
 
                                 ResultSet rs = pst.executeQuery();
-                                int i=1;
+                         
                                 if(rs.next()){
                                 
                                
@@ -126,8 +126,12 @@ if(sessionid!=0&&sessionid!=1){
                         </div>
                         <div class="table_row grid grid-cols-12 justify-between content-center">
                                                         <%
-                                                            
-                                                            do{%>
+                                                            }
+ pst = conn.prepareStatement("SELECT * FROM reviews where hotel_id="+hotelid);
+
+                                rs = pst.executeQuery();
+       int i=1;
+                                                        while(rs.next()){%>
 
                             <div class="col-span-1 rows justify-center">
                                 <%=i%>
@@ -136,23 +140,23 @@ if(sessionid!=0&&sessionid!=1){
 
                             </div>
                             <div class="col-span-3 rows" style="text-align: left;">
-                              <%=rs.getString(5)%>
+                              <%=rs.getString(1)%>
                             </div>
                             <div class="col-span-5 rows" style="text-align: left;">
-                                    <%=rs.getString(6)%>
+                                    <%=rs.getString(2)%>
                             </div>
                             <div class="col-span-2 rows">
-                                     <%=rs.getString(7)%>
+                                     <%=rs.getString(3)%>
                             </div>
-                            <%  i++;}while(rs.next());%>
+                            <%  i++;}%>
                         </div>
                         <div class="table_footer flex justify-end">
-                            <div><button class="insert_btn" data-toggle="modal" data-target="#addHotel">Add Review</button></div>
+                            <div>
+                                  <form action="addReview.jsp" method="post"><button class="insert_btn" name="hotel_id" value=<%=hotelid%>>Add Review</button></form>
                         </div>
                     </div>
                 </div>
             </div>
-                            <%}%>
         </div>
     </div>
 </body>

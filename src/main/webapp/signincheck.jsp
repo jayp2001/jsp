@@ -30,9 +30,17 @@
                 ResultSet rs = pst.executeQuery();
                 
                 if(rs.next()){
+                    
                     session.setAttribute("id" , rs.getInt(6));
+                   session.setAttribute("name",rs.getString(1));
                     response.sendRedirect("dashboard.jsp");
                 }
+                else{%>
+                    <script>
+            alert("Invalid Credentials");
+            window.location.href ="http://localhost:8080/mavenproject1/";
+        </script>
+               <% }
             }catch(Exception e){
                 out.print(e);
             }

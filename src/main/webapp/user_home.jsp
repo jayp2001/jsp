@@ -34,7 +34,7 @@ if(sessionid!=0&&sessionid!=1){
         <div class="nav-bar grid grid-rows-1">
             <div class="grid grid-cols-12 content-center nav">
                 <div class="col-span-8 flex justify-start gap-7">
-                    <a href="#" class="nav-link-active">
+                    <a href="http://localhost:8080/mavenproject1/dashboard.jsp" class="nav-link-active">
                         Home
                     </a>
                     <a class="nav-link">
