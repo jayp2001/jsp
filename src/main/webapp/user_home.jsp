@@ -61,7 +61,9 @@ if(sessionid!=0&&sessionid!=1){
                                 ResultSet rs = pst.executeQuery();
                                 int i=1;
                                 while (rs.next()) {
+                                    int hotelid=rs.getInt(1);
                             %>
+                            
                         <div class="table_row grid grid-cols-12 justify-between content-center">
                                 <div class="col-span-1 rows justify-center">
                                     <%=i%>
@@ -76,8 +78,14 @@ if(sessionid!=0&&sessionid!=1){
                                     <%=rs.getString(6)%>
                                 </div>
                                       <div class="col-span-1 rows view_detalis">
-                                <i class="fa fa-eye"></i>
-                            </div>
+                                            <form action="hotelDetails.jsp" method="post">
+                                                <input type="hidden"  name="hotel_id" value=<%=hotelid%>>
+                                                <button type="submit">
+                                          <i class="fa fa-eye">
+                                          </i>
+                                                   </button>
+                                            </form>
+                            </div>  
                             </div>
                             <%
                                 i++;
